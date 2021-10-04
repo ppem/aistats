@@ -1,0 +1,5 @@
+latent_m = torch.rand([final_samples,latent_dim_m]).to(device)
+latent_c = torch.rand([final_samples,latent_dim_c]).to(device)
+fake_m = G_m(latent_m)
+fake_c = G_c(torch.cat([latent_c,fake_m],dim=-1))
+fake = torch.cat([fake_m,fake_c],dim=-1)
